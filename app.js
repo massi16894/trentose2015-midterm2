@@ -15,6 +15,24 @@ var tmpl = ' <li id="ID">' +
            ' </li> ';
 
 $(document).ready(function(){
+    
+    
+    
+    for(var i = 0; i < data.length; i++){
+        
+        var word = data[i].word_en;
+        var sol = data[i].word_de;
+        $("li").addClass("current");
+        $(".cards").append(tmpl.replace("WORD", word).replace("ID",i));
+        
+        $(".cards").on("click", "li", function(){
+            
+            $(".cards").append(tmpl.replace("SOLUTION", sol).replace("ID",i));
+        
+        });
+        
+        
+    }
 
 
 });
